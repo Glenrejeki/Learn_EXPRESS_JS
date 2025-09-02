@@ -1,0 +1,29 @@
+{
+  "name": "learn_express_js",
+  "version": "1.0.0",
+  "description": "[link belajar ](https://youtu.be/SccSCuHhOw0?si=cnijxBQZO2f-mfG9)",
+  "main": "index.mjs",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start:dev": "nodemon ./src/index.mjs",
+    "start": "node ./src/index.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Glenrejeki/Learn_EXPRESS_JS.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Glenrejeki/Learn_EXPRESS_JS/issues"
+  },
+  "homepage": "https://github.com/Glenrejeki/Learn_EXPRESS_JS#readme",
+  "dependencies": {
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  },
+  "type": "module"
+}
