@@ -6,9 +6,9 @@
 ## Materi :
 - [x]Intro & Setup
 - [x]Get Requests
-- [ ]Route Params
-- [ ]Query Params
-- [ ]Post Requests
+- [x]Route Params
+- [x]Query Params
+- [x]Post Requests
 - [ ]Put Requests
 - [ ]Patch Requests
 - [ ]Delete Requests
