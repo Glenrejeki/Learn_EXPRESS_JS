@@ -68,7 +68,14 @@
     }) 
 
     // PATCH
-    
+    app.patch("/api/users/:id",(request,response)=> {
+        const {body, params : {id}} = request
+
+        const parseId = parseInt (id)
+        if(isNaN(parseId)) return response.sendStatus(400);
+
+        const findUserIndex = mockUser.findIndex((user) => user.id === parseId)
+    })
 
 
     app.listen(PORT, ()=> {
