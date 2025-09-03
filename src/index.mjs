@@ -53,8 +53,22 @@
 
     // Put
     app.put("/api/users/:id",(request,response) => {
-        
+        const {body, params : {id}} = request
+
+        const parseId = parseInt (id)
+        if(isNaN(parseId)) return response.sendStatus(400);
+
+        const findUserIndex = mockUser.findIndex((user) => user.id === parseId)
+
+        if (findUserIndex === -1) return response.sendStatus(404)
+
+        mockUser[findUserIndex] = {id :parseId, ...body}
+
+        return response.sendStatus(200)
     }) 
+
+    // PATCH
+    
 
 
     app.listen(PORT, ()=> {
