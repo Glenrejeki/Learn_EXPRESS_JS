@@ -1,4 +1,6 @@
-    import express, { request, response } from "express";
+import express, { request, response } from "express";
+
+
 
     const app = express()
 
@@ -19,13 +21,22 @@
  
     app.get('/api/users', (request, response)=> {
         console.log(request.query)
-        const  {filter, value} = request.query
-        if (!filter && !value) return response.send(mockUser)
+        const {filter, value} = request.query
+        
+        if (!filter && !value) {
+            return response.send(mockUser)
+        }
 
-        if(filter && value) return response.send (mockUser.filter((user)=> user[filter].includes(value)))
+        if (filter && value) {
+            const filtered = mockUser.filter((user) =>
+                String(user[filter]).includes(value)
+            )
+            return response.send(filtered)
+        }
 
-        return res.send(filtered);
+        return response.status(400).send({ msg: "Invalid query params" })
     })
+
 
     // Post Request 
     app.post('/api/users', (request, response)=> {
@@ -75,11 +86,31 @@
         if(isNaN(parseId)) return response.sendStatus(400);
 
         const findUserIndex = mockUser.findIndex((user) => user.id === parseId)
+
+        if (findUserIndex === -1) return response.sendStatus(404)
+        mockUser[findUserIndex] = {... mockUser[findUserIndex], ...body}
+        return response.sendStatus(200)
     })
 
+    // Delete
+    app.delete('/api/users/:id', (request, response) => {
+        const { params: { id } } = request;
+        const parseId = parseInt(id);
+        
+        if (isNaN(parseId)) return response.sendStatus(400);
 
+        const findUserIndex = mockUser.findIndex((user) => user.id === parseId);
+        if (findUserIndex === -1) return response.sendStatus(404);
+
+        mockUser.splice(findUserIndex, 1);
+        return response.sendStatus(200);
+    });
+
+
+
+
+    // Akses Ke server
     app.listen(PORT, ()=> {
         console.log(`Running on port ${PORT}`)
     })
 
-    

@@ -10,7 +10,7 @@
 - [x] Query Params
 - [x] Post Requests
 - [x] Put Requests
-- [ ] Patch Requests
+- [x] Patch Requests
 - [ ] Delete Requests
 - [ ] Middleware
 - [ ] Validation
