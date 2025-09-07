@@ -13,7 +13,7 @@
 - [x] Patch Requests
 - [x] Delete Requests
 - [x] Middleware
-- [ ] Validation
+- [x] Validation
 - [ ] Routers
 - [ ] Cookies
 - [ ] Sessions
