@@ -14,7 +14,7 @@
 - [x] Delete Requests
 - [x] Middleware
 - [x] Validation
-- [ ] Routers
+- [ ] Routers 
 - [ ] Cookies
 - [ ] Sessions
 - [ ] Sessions Pt. 2

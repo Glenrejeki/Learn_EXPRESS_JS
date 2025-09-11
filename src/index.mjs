@@ -1,9 +1,6 @@
 import express from "express";
-import { query, validationResult, body, matchedData, checkSchema } from "express-validator"
-import { createUserValidationSchema } from './utils/validationSchemas.mjs'
 import userRouter from './routes/user.mjs'
-import { mockUser } from "./utils/constat.mjs";
-import{resolveIndexByUserId} from './utils/middleware.mjs'
+import productRouter from './routes/products.mjs'
 
 
     const app = express()
@@ -13,6 +10,7 @@ import{resolveIndexByUserId} from './utils/middleware.mjs'
     app.use(express.json())
     app.use(loggingMiddleware)
     app.use(userRouter)
+    app.use(productRouter)
   
     const resolveIndexByUserId = (request, response, next)=> {
         const {body, params : {id}} = request
@@ -46,9 +44,6 @@ import{resolveIndexByUserId} from './utils/middleware.mjs'
 
 
 
-    app.get("/api/products",(request,response) =>{
-        response.send([{id :123, name:"dada ayam", harga:100000}])
-    })
 
 
     // Akses Ke server
